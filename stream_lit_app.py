@@ -113,8 +113,10 @@ class BlackScholes:
             strike * volatility * sqrt(time_to_maturity)
         )
         self.put_gamma = self.call_gamma
+        sum_strike_call_gamma = self.strike + self.call_gamma
+        self.sum_strike_call_gamma = sum_strike_call_gamma
 
-        return call_price, put_price
+        return call_price, put_price , sum_strike_call_gamma
 
 # Function to generate heatmaps
 # ... your existing imports and BlackScholes class definition ...
@@ -195,10 +197,10 @@ st.table(input_df)
 
 # Calculate Call and Put values
 bs_model = BlackScholes(time_to_maturity, strike, current_price, volatility, interest_rate)
-call_price, put_price = bs_model.calculate_prices()
+call_price, put_price,sum_strike_gamma = bs_model.calculate_prices()
 
 # Display Call and Put Values in colored tables
-col1, col2 = st.columns([1,1], gap="small")
+col1, col2,col3 = st.columns([1,1,1], gap="small")
 
 with col1:
     # Using the custom class for CALL value
@@ -222,6 +224,16 @@ with col2:
         </div>
     """, unsafe_allow_html=True)
 
+with col2:
+    # Using the custom class for PUT value
+    st.markdown(f"""
+        <div class="metric-container metric-put">
+            <div>
+                <div class="metric-label">PUT Value</div>
+                <div class="metric-value">${sum_strike_gamma:.2f}</div>
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
 st.markdown("")
 st.title("Options Price - Interactive Heatmap created by Anmol")
 st.info("Explore how option prices fluctuate with varying 'Spot Prices and Volatility' levels using interactive heatmap parameters, all while maintaining a constant 'Strike Price'.")
