@@ -125,7 +125,7 @@ with st.sidebar:
     st.title("📊 Black-Scholes Model")
     st.write("`Created by:`")
     linkedin_url = "https://www.linkedin.com/in/anmol-sharma-420615219/"
-    st.markdown(f'<a href="{linkedin_url}" target="_blank" style="text-decoration: none; color: inherit;"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="25" height="25" style="vertical-align: middle; margin-right: 10px;">`Prudhvi Reddy, Muppala`</a>', unsafe_allow_html=True)
+    st.markdown(f'<a href="{linkedin_url}" target="_blank" style="text-decoration: none; color: inherit;"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="25" height="25" style="vertical-align: middle; margin-right: 10px;">`Anmol Sharma`</a>', unsafe_allow_html=True)
 
     current_price = st.number_input("Current Asset Price", value=100.0)
     strike = st.number_input("Strike Price", value=100.0)
@@ -180,7 +180,7 @@ def plot_heatmap(bs_model, spot_range, vol_range, strike):
 
 
 # Main Page for Output Display
-st.title("Black-Scholes Pricing Model")
+st.title("Black-Scholes Pricing Model for Option Pricing")
 
 # Table of Inputs
 input_data = {
@@ -223,7 +223,7 @@ with col2:
     """, unsafe_allow_html=True)
 
 st.markdown("")
-st.title("Options Price - Interactive Heatmap")
+st.title("Options Price - Interactive Heatmap created by Anmol")
 st.info("Explore how option prices fluctuate with varying 'Spot Prices and Volatility' levels using interactive heatmap parameters, all while maintaining a constant 'Strike Price'.")
 
 # Interactive Sliders and Heatmaps for Call and Put Options
